@@ -573,7 +573,7 @@ var Floors = {cacheData: null,data: function(t) {
             clearTimeout(o), e()
         }), a.bind("click", e)
     }(document), function() {
-        var t = $("#shortcut-2013 .fl").eq(0).find(".fore1"), e = '            <li class="fore2 jd-wx-qrcode">                <a href="#none"><i class="i-qrcode"></i>\u5173\u6ce8\u4eac\u4e1c</a>                <div class="qrcode-show">                    <span class="arrow">                        <i class="layer1"></i><i class="layer2"></i>                    </span>                </div>            </li>';
+        var t = $("#shortcut-2013 .fl").eq(0).find(".fore1"), e = '            <li>                          <div class="qrcode-show"> <span class="arrow"><i class="layer1"></i><i class="layer2"></i> </span> </div>  </li>';
         t.after(e), $(".jd-wx-qrcode").Jdropdown({delay: 100}, function() {
         })
     }()
