@@ -2334,7 +2334,7 @@ img.err-price {
 	top: 40px;
 	left: 0;
 	width: 203px;
-	height: 402px;
+	height: 550px;
 	padding: 3px 3px 3px 0;
 	background: #FAFAFA;
 	border: solid #E4393C;
@@ -2577,7 +2577,9 @@ img.err-price {
 }
 
 #categorys-2013.hover .mc {
-	display: block
+	 display: block;
+
+
 }
 
 * html #categorys-2013 .item dd {
@@ -4166,7 +4168,8 @@ img.err-price {
 .catalogue {
 	float: left;
 	width: 210px;
-	margin-bottom: 0
+	margin-bottom: 0;
+	margin-top: 150px
 }
 
 .catalogue .mt {

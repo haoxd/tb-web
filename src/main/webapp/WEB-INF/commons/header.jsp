@@ -133,6 +133,36 @@
 							</h3>
 							<s></s></span>
 					</div>
+					<div class="item fore15">
+						<span data-split="1"><h3>
+								<a href="/products/865.html">鞋靴</a>
+							</h3>
+							<s></s></span>
+					</div>
+					<div class="item fore16">
+						<span data-split="1"><h3>
+								<a href="/products/903.html">礼包箱品</a>
+							</h3>
+							<s></s></span>
+					</div>
+					<div class="item fore17">
+						<span data-split="1"><h3>
+								<a href="/products/963.html">珠宝</a>
+							</h3>
+							<s></s></span>
+					</div>
+					<div class="item fore18">
+						<span data-split="1"><h3>
+								<a href="/products/1031.html">运动健康</a>
+							</h3>
+							<s></s></span>
+					</div>
+					<div class="item fore19">
+						<span data-split="1"><h3>
+								<a href="/products/1147.html">彩票，旅行充值，服务</a>
+							</h3>
+							<s></s></span>
+					</div>
 					<div class="extra">
 						<a {if="" pageconfig.ishome}clstag="homepage|keycount|home2013|0614a"
 							{="" if}="" href="http://www.jd.com/allSort.aspx">全部商品分类</a>
