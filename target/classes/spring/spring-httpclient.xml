@@ -15,10 +15,13 @@
 	</bean>
 	
 	<!-- 创建httpclient对象的构建器 -->
-	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder"> 	
+	<bean id="httpClientBuilder" class="org.apache.http.impl.client.HttpClientBuilder" factory-method="create"> 	
 	    <!--将httpclient链接管理器注入到httpclient的构建器  -->
-	    <property name="httpClientConnectionManager" ref="httpClientConnectionManager"></property>	    
+	    <property name="connectionManager" ref="httpClientConnectionManager"/>	    
 	</bean>
+	
+	<!-- 得到httpClient的实例 -->
+	<bean id="httpClient" factory-bean="httpClientBuilder" factory-method="build"/>
 	
 	<!--从连接池中获取一个已有的httpclient对象继续使用,如果没有则创建Httpclient对象-->
 	<!--因为存在存连接管理器当中获取多个连接 ，所以该对象定义为“多例模式” -->
@@ -49,9 +52,10 @@
 	    factory-method="build"/>    
 	
 	<!--定期关闭无效连接，清理无效链接  -->
-	<bean class="com.tb.web.sys.httplient.IdleConnectionEvictor">
-	    <constructor-arg index="0" ref="httpClientConnectionManager"></constructor-arg>
-	    
+	<bean class="com.tb.web.sys.httplient.IdleConnectionEvictor" destroy-method="shutdown">
+	    <constructor-arg index="0" ref="httpClientConnectionManager"/>	  
 	</bean>
+	<!-- 得到requestConfig实例 -->
+	<bean id="requestConfig" factory-bean="requestConfigBuilder" factory-method="build" />
 
 </beans>
