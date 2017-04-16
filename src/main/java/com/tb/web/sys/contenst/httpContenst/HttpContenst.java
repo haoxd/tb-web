@@ -21,6 +21,23 @@ public class HttpContenst {
 		public static final String RESP_CODE = "respCode";// 失败
 
 	}
+	/*
+	 * http 访问路径
+	 * **/
+	public interface URL {
+
+		public static final String PREFIX = "http://tb.manager.com/ow/api/"; //接口前缀
+
+	}
+	
+	public interface HttpStatusCode {
+
+		public static final String NOTFOUND = "404"; 
+		public static final String SERVERERROR = "500";
+		public static final String OK = "200";
+
+	}
+	
 	
 	
 }

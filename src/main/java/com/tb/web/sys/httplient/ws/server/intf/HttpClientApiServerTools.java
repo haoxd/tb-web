@@ -23,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import com.tb.common.bean.api.RespInfo;
+import com.tb.web.sys.contenst.httpContenst.HttpContenst;
 
 
 /**
@@ -53,10 +54,12 @@ public class HttpClientApiServerTools  implements BeanFactoryAware{
 	@SuppressWarnings("unchecked")
 	public RespInfo sendGet(String url) throws HttpClientErrorException, IOException {
 		RespInfo respBean = new RespInfo();
-
+		
+		String urlPrefix =HttpContenst.URL.PREFIX;
+		 url =urlPrefix+url;
 		// 创建http GET请求
 		HttpGet httpGet = new HttpGet(url);
-		httpGet.setConfig(this.requestConfig);
+		httpGet.setConfig(requestConfig);
 		httpGet.setHeader("HaiTao", "1");
 		CloseableHttpResponse response = null;
 		try {
@@ -81,7 +84,6 @@ public class HttpClientApiServerTools  implements BeanFactoryAware{
 			if (response != null) {
 				response.close();
 			}
-			getHttpClient().close();
 		}
 		return respBean;
 	}
@@ -121,7 +123,7 @@ public class HttpClientApiServerTools  implements BeanFactoryAware{
 
 		// 创建http POST请求
 		HttpPost httpPost = new HttpPost(url);
-		httpPost.setConfig(this.requestConfig);
+		httpPost.setConfig(requestConfig);
 		if (null != inParam) {
 			List<NameValuePair> parameters = new ArrayList<NameValuePair>(0);
 			for (Map.Entry<String, String> params : inParam.entrySet()) {
@@ -144,7 +146,6 @@ public class HttpClientApiServerTools  implements BeanFactoryAware{
 			if (response != null) {
 				response.close();
 			}
-			getHttpClient().close();
 		}
 
 		return resp;

@@ -72,11 +72,23 @@ public class text {
 		return str;
 	}
 
+	public static boolean  foo(char c){
+		System.out.print(c);
+		return true;
+	}
+	
 	public static void main(String[] args) {
 		
 		 // Map<String,Integer> map =text.Demo3(); 
 		 
 		 
-		System.out.println(text.Demo1(321));
+		//System.out.println(text.Demo1(321));
+		
+		int i =0;
+		for (foo('A');foo('b')&&(i<2); foo('c')) {
+			i++;
+			foo('d');
+			
+		}
 	}
 }
