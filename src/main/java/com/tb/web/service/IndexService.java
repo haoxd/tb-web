@@ -58,7 +58,7 @@ public class IndexService {
 					map.put("heightB",20);
 					data.add(map);
 				}
-				resp.setData(data);
+				resp.setData(Mapper.writeValueAsString(data));//序列化为JSON字符串
 				resp.setRespCode(HttpContenst.HttpStatusCode.OK);
 				
 			}else{

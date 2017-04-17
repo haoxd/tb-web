@@ -38,7 +38,7 @@
     if ( !cfg.DATA_MSlide ) {
         cfg.DATA_MSlide=[];
     }
-    var data =${indexBigAd};
+      var data = ${indexBigAd};
 
 
     cfg.DATA_MSlide = data;
