@@ -16,6 +16,7 @@ import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.dom4j.DocumentException;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
@@ -23,7 +24,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import com.tb.common.bean.api.RespInfo;
-import com.tb.web.sys.contenst.httpContenst.HttpContenst;
+import com.tb.web.sys.contenst.httpContenst.HttpConstants;
+import com.tb.web.util.xmlUtil.readAppXml;
 
 
 /**
@@ -50,12 +52,13 @@ public class HttpClientApiServerTools  implements BeanFactoryAware{
 	 * 
 	 * @param url：请求路径
 	 * @return
+	 * @throws DocumentException 
 	 */
 	@SuppressWarnings("unchecked")
-	public RespInfo sendGet(String url) throws HttpClientErrorException, IOException {
+	public RespInfo sendGet(String url) throws HttpClientErrorException, IOException, DocumentException {
 		RespInfo respBean = new RespInfo();
 		
-		String urlPrefix =HttpContenst.URL.PREFIX;
+		String urlPrefix =readAppXml.readAppXMLByNode("webServiceAddress", null);
 		 url =urlPrefix+url;
 		// 创建http GET请求
 		HttpGet httpGet = new HttpGet(url);
@@ -97,10 +100,11 @@ public class HttpClientApiServerTools  implements BeanFactoryAware{
 	 * @throws HttpClientErrorException
 	 * @throws IOException
 	 * @throws URISyntaxException
+	 * @throws DocumentException 
 	 */
 	@SuppressWarnings("unchecked")
 	public RespInfo sendGetByParam(String url, Map<String, String> inParam)
-			throws HttpClientErrorException, IOException, URISyntaxException {
+			throws HttpClientErrorException, IOException, URISyntaxException, DocumentException {
 		RespInfo resp = new RespInfo();
 
 		URIBuilder uriBuilder = new URIBuilder(url);
@@ -117,10 +121,14 @@ public class HttpClientApiServerTools  implements BeanFactoryAware{
 	 * @return
 	 * @throws ParseException
 	 * @throws IOException
+	 * @throws DocumentException 
 	 */
-	public RespInfo sendPostByParam(String url, Map<String, String> inParam) throws ParseException, IOException {
+	public RespInfo sendPostByParam(String url, Map<String, String> inParam) throws ParseException, IOException, DocumentException {
 		RespInfo resp = new RespInfo();
 
+		
+		String urlPrefix =readAppXml.readAppXMLByNode("webServiceAddress", null);
+		 url =urlPrefix+url;
 		// 创建http POST请求
 		HttpPost httpPost = new HttpPost(url);
 		httpPost.setConfig(requestConfig);
@@ -159,8 +167,9 @@ public class HttpClientApiServerTools  implements BeanFactoryAware{
 	 * @return
 	 * @throws ParseException
 	 * @throws IOException
+	 * @throws DocumentException 
 	 */
-	public RespInfo sendPost(String url) throws ParseException, IOException {
+	public RespInfo sendPost(String url) throws ParseException, IOException, DocumentException {
 		
 		return this.sendPostByParam(url, null);
 	}

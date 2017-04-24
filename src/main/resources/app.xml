@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+    <!--web接口地址  -->
+    <webServiceAddress url="http://tb.manager.com/ow/api/"/>
+
+    <index>
+    <!--请求大广告路径-->
+			<indexPage url="content/"/>
+        
+    </index>
+    
+    
+    
+    
+</application>

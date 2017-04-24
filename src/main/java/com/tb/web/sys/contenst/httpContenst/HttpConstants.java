@@ -6,7 +6,7 @@ package com.tb.web.sys.contenst.httpContenst;
  * @version 1.0
  * @since JDK 1.6.0_21 文件名称：HttpContenst.java 类说明：http接口返回静态类
  */
-public class HttpContenst {
+public class HttpConstants {
 		/*
 		 * http报文信息
 		 * **/
@@ -21,15 +21,6 @@ public class HttpContenst {
 		public static final String RESP_CODE = "respCode";// 失败
 
 	}
-	/*
-	 * http 访问路径
-	 * **/
-	public interface URL {
-
-		public static final String PREFIX = "http://tb.manager.com/ow/api/"; //接口前缀
-
-	}
-	
 	public interface HttpStatusCode {
 
 		public static final String NOTFOUND = "404"; 

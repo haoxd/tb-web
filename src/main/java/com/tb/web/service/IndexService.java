@@ -1,29 +1,24 @@
 package com.tb.web.service;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Resource;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
-
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.tb.common.bean.api.RespInfo;
-import com.tb.web.sys.contenst.httpContenst.HttpContenst;
+import com.tb.web.sys.contenst.httpContenst.HttpConstants;
 import com.tb.web.sys.httplient.ws.server.intf.HttpClientApiServerTools;
+import com.tb.web.util.xmlUtil.readAppXml;
 
 @Service
 public class IndexService {
 	
 	
-	private static final String REQUERT_INDEX_BIGAD_URL="content/?categoryId=4&page=1&rows=6"; //请求大广告路径
 	
 	/**
 	 * http 服务
@@ -40,10 +35,15 @@ public class IndexService {
 	@SuppressWarnings("rawtypes")
 	public RespInfo queryIndexBigAd() {
 		RespInfo resp = new RespInfo();
+		Map<String, String> params = new HashMap<String,String>();
+		params.put("categoryId", "4");
+		params.put("page", "1");
+		params.put("rows", "6");
 		List<Map<String,Object>> data = new ArrayList<Map<String,Object>>();	 
 		try {
-			RespInfo respInfo = this.apiServer.sendGet(REQUERT_INDEX_BIGAD_URL);
-			if(HttpContenst.HttpStatusCode.OK.equals(respInfo.getRespCode())){
+			//this.apiServer.sendGet(readAppXml.readAppXMLByNode("index", "indexPage"));
+			RespInfo respInfo = this.apiServer.sendGetByParam(readAppXml.readAppXMLByNode("index", "indexPage"), params);
+			if(HttpConstants.HttpStatusCode.OK.equals(respInfo.getRespCode())){
 				JsonNode jsonNode = Mapper.readTree(respInfo.getData().toString());
 				ArrayNode rowsArray = (ArrayNode) jsonNode.get("rows");
 				for (JsonNode rows : rowsArray) {
@@ -59,15 +59,15 @@ public class IndexService {
 					data.add(map);
 				}
 				resp.setData(Mapper.writeValueAsString(data));//序列化为JSON字符串
-				resp.setRespCode(HttpContenst.HttpStatusCode.OK);
+				resp.setRespCode(HttpConstants.HttpStatusCode.OK);
 				
 			}else{
 				resp.setRespDesc(respInfo.getRespDesc());
-				resp.setRespCode(HttpContenst.HttpStatusCode.SERVERERROR);
+				resp.setRespCode(HttpConstants.HttpStatusCode.SERVERERROR);
 			}
 		} catch (Exception e) {
 			resp.setRespDesc("请求大广告服务错误"+e);
-			resp.setRespCode(HttpContenst.HttpStatusCode.SERVERERROR);
+			resp.setRespCode(HttpConstants.HttpStatusCode.SERVERERROR);
 		}
 		
 		return resp;
