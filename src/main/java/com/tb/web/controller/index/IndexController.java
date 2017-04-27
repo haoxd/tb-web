@@ -40,10 +40,14 @@ public class IndexController extends BaseController {
 	public ModelAndView getIndexPageInfo(){
 		 ModelAndView modelAndView = new ModelAndView("index");
 		
-		 RespInfo  info = this.indexService.queryIndexBigAd(); 
-		 if(HttpConstants.HttpStatusCode.OK.equals(info.getRespCode())){
-			 modelAndView.addObject("indexBigAd", info.getData());
-		 }		 
+		 RespInfo  indexBigAdInfo = this.indexService.queryIndexBigAd(); 
+		 if(HttpConstants.HttpStatusCode.OK.equals(indexBigAdInfo.getRespCode())){
+			 modelAndView.addObject("indexBigAd", indexBigAdInfo.getData());
+		 }		
+		 RespInfo indexMinAdInfo = this.indexService.queryIndexMinAd();
+		 if(HttpConstants.HttpStatusCode.OK.equals(indexMinAdInfo.getRespCode())){
+			 modelAndView.addObject("indexMinAd", indexMinAdInfo.getData());
+		 }
 		return modelAndView;
 	}
 

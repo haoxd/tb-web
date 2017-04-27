@@ -103,13 +103,13 @@ public class HttpClientApiServerTools  implements BeanFactoryAware{
 	 * @throws DocumentException 
 	 */
 	@SuppressWarnings("unchecked")
-	public RespInfo sendGetByParam(String url, Map<String, String> inParam)
+	public RespInfo sendGetByParam(String url, Map<String, Object> inParam)
 			throws HttpClientErrorException, IOException, URISyntaxException, DocumentException {
 		RespInfo resp = new RespInfo();
 
 		URIBuilder uriBuilder = new URIBuilder(url);
-		for (Map.Entry<String, String> params : inParam.entrySet()) {
-			uriBuilder.setParameter(params.getKey(), params.getValue());
+		for (Map.Entry<String, Object> params : inParam.entrySet()) {
+			uriBuilder.setParameter(params.getKey(), params.getValue().toString());
 		}
 		return this.sendGet(uriBuilder.build().toString());
 	}
