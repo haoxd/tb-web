@@ -7,6 +7,9 @@
         <dependent-module archiveName="tb-common-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tb-common/tb-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="tb-manager-pojo-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tb-manager-pojo/tb-manager-pojo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="tb-web"/>
         <property name="java-output-path" value="/tb-web/target/classes"/>
     </wb-module>

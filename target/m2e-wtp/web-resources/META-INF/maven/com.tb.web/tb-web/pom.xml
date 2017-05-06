@@ -23,6 +23,12 @@
 				<version>1.0.0-SNAPSHOT</version>
 			</dependency> 
 			
+			<dependency>
+				<groupId>com.tb.manager</groupId>
+					<artifactId>tb-manager-pojo</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency> 
+			
 			<!-- 单元测试 -->
 			<dependency>
 				<groupId>junit</groupId>
