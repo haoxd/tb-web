@@ -9,6 +9,14 @@
         
     </index>
     
+   <item>
+       <!--商品详情  -->
+       	<itemDetail url ="item/getItemDetailInfoByItemId/"/>
+       	<!--商品描述详情  -->
+       	<itemDesc url ="item/getItemDescByItemId/"/>
+       
+   </item>
+    
     
     
     

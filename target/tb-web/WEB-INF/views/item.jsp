@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title>${item.title } - 淘淘</title>
+	<title>${item.title } - 嗨淘</title>
 	<script>var jdpts = new Object(); jdpts._st = new Date().getTime();</script>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="stylesheet" type="text/css" href="/css/taotao.css" media="all" />
@@ -14,7 +14,7 @@
     	window.pageConfig = {
 			compatible: true,
        		product: {
-				skuid: ${item.id},
+				skuid: ${item.id },
 				name: '\u957f\u8679\uff08\u0043\u0048\u0041\u004e\u0047\u0048\u004f\u004e\u0047\uff09\u004c\u0045\u0044\u0034\u0032\u0035\u0033\u0038\u0045\u0053\u0020\u0034\u0032\u82f1\u5bf8\u0020\u7a84\u8fb9\u84dd\u5149\u004c\u0045\u0044\u6db2\u6676\u7535\u89c6\uff08\u9ed1\u8272\uff09',
 				skuidkey:'E804B1D153D29E36088A33A134D85EEA',
 				href: 'http://item.jd.com/1221882.html',
@@ -85,7 +85,7 @@
 	</li>
 	<li id="summary-service" class="hide">
 		<div class="dt">服&#x3000;&#x3000;务：</div>
-		<div class="dd">由 淘淘 发货并提供售后服务。</div>
+		<div class="dd">由 嗨淘 发货并提供售后服务。</div>
 	</li>
 	<li id="summary-tips"  class="hide">
 		<div class="dt">温馨提示：</div>

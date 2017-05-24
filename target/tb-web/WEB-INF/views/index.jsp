@@ -6,6 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="shortcut icon" href="/images/shopping.ico">
 <title>嗨淘网上商城-综合网购首选（TB.COM）-正品低价、品质保障、货到付款、配送及时、放心服务、轻松购物！</title>
 <meta name="description" content="淘淘JD.COM-专业的综合网上购物商城，在线销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品、在线旅游等数万个品牌千万种优质商品。便捷、诚信的服务，为您提供愉悦的网上商城购物体验! ">
 <meta name="Keywords" content="网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,淘淘商城">
@@ -189,18 +190,7 @@ pageConfig.DATA_MScroll =[
 <script>
 // 右上方广告位
 (function() {
-	var data = [
-	            {
-	                "width": 310,
-	                "height": 70,
-	                "src": "/images/5440ce68Na00d019e.jpg",
-	                "href": "http://c.fa.jd.com/adclick?sid=2&cid=601&aid=3614&bid=4196&unit=35984&advid=109277&guv=&url=http://sale.jd.com/mall/FQLUNlG53wbX7m.html",
-	                "alt": "",
-	                "widthB": 210,
-	                "heightB": 70,
-	                "srcB": "http://img14.360buyimg.com/da/jfs/t334/155/1756719493/14371/e367c503/5440ce6dNd056ce39.jpg"
-	            }
-	        ];
+	var data =${indexMinAd};
     var ad = pageConfig.FN_GetRandomData(data);
     ad = pageConfig.FN_GetCompatibleData(ad);
     document.write("<a href=\"" + ad.href + "\" target=\"_blank\"><img data-img=\"2\" src=\"" + ad.src + "\" width=\"" + ad.width + "\" height=\"" + ad.height + "\" alt=\"" + ad.alt + "\" /></a>");
@@ -215,7 +205,7 @@ pageConfig.DATA_MScroll =[
 <div class="mc">
 	<ul>
 		<li class="odd" clstag="homepage|keycount|home2013|11b1"><a href="http://club.jr.jd.com/girls/jingxuan" target="_blank" title="38女人节得3800理财金">38女人节得3800理财金</a></li>					
-				<li clstag="homepage|keycount|home2013|11b1"><a href="http://sale.jd.com/act/U0jwsxIFrmO.html" target="_blank" title="开学季音像299减99">开学季音像299减99</a></li>
+		<li clstag="homepage|keycount|home2013|11b1"><a href="http://sale.jd.com/act/U0jwsxIFrmO.html" target="_blank" title="开学季音像299减99">开学季音像299减99</a></li>
 				<li class="odd" clstag="homepage|keycount|home2013|11b1"><a href="http://sale.jd.com/act/Kz4QnjJMuL.html" target="_blank" title="情定金生相约钻石婚">情定金生相约钻石婚</a></li>					
 				<li clstag="homepage|keycount|home2013|11b1"><a href="http://sale.jd.com/act/Z5o4RNyF2Uv.html" target="_blank" title="爆款造型品 扮靓美人计">爆款造型品 扮靓美人计</a></li>
 	</ul>
