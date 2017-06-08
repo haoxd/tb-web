@@ -33,14 +33,32 @@ public class ItemController  extends BaseController {
 	public ModelAndView getItemDetail(@PathVariable("itemId") Long itemId){
 		ModelAndView modelAndView = new ModelAndView("item");
 		
-		RespInfo resp = this.itemService.getItemDetail(itemId);
-		
-		HashMap<String, Object> data = (HashMap<String, Object>) resp.getData();
-		
-		if(HttpStatusCode.OK.equals(resp.getRespCode())){
-			 modelAndView.addObject("item", data.get("item"));
-			 modelAndView.addObject("itemDesc", data.get("itemDesc"));
+		try {
+			RespInfo respDetail = this.itemService.getItemDetail(itemId);		
+			HashMap<String, Object> dataDetail = (HashMap<String, Object>) respDetail.getData();
+			
+			RespInfo respDesc = this.itemService.getItemDesc(itemId);	
+			HashMap<String, Object> dataDesc = (HashMap<String, Object>) respDesc.getData();
+			
+			RespInfo respItemParam = this.itemService.getItemParam(itemId);	
+			HashMap<String, Object> dataItemParam = (HashMap<String, Object>) respItemParam.getData();
+			
+			if(HttpStatusCode.OK.equals(respDetail.getRespCode())){
+				 modelAndView.addObject("item", dataDetail.get("item"));
+				
+				
+			}
+			if(HttpStatusCode.OK.equals(respDesc.getRespCode())){
+				 modelAndView.addObject("itemDesc", dataDesc.get("itemDesc"));
+			}
+			
+			if(HttpStatusCode.OK.equals(respItemParam.getRespCode())){
+				 modelAndView.addObject("itemParam", dataItemParam.get("itemParam"));
+			}
+			return modelAndView;
+		} catch (Exception e) {
+			return new ModelAndView("item");
 		}
-		return modelAndView;
+		
 	}
 }

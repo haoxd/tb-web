@@ -14,6 +14,8 @@
        	<itemDetail url ="item/getItemDetailInfoByItemId/"/>
        	<!--商品描述详情  -->
        	<itemDesc url ="item/getItemDescByItemId/"/>
+       	<!--商品规格  -->
+       	<itemParam url ="item/getItemParamItemByItemId/"/>
        
    </item>
     
