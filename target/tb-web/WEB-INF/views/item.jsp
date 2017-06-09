@@ -102,7 +102,7 @@
 </ul><!--summary end-->
 		<div id="brand-bar" clstag="shangpin|keycount|product|btn-coll">
 	<dl class="slogens">
-		<dt>淘淘·正品保证</dt>
+		<dt>嗨淘·正品保证</dt>
 		<dd class="fore1">
 			<a target="_blank" href="http://help.360buy.com/help/question-67.html"><b></b><span>货到</span><span>付款</span></a>
 		</dd>
