@@ -1,5 +1,6 @@
 package com.tb.web.controller.index;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,6 +11,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.codec.binary.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
 
@@ -17,10 +23,17 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class text {
+public class text extends HttpServlet{
+	@Override
+	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		super.service(arg0, arg1);
+	}
 
 	private static Student student1 = null;
 	private static Student student2 = null;
+	
+	public static void aa(){}
 
 	public static void textss() {
 		student1 = new Student();
@@ -205,6 +218,6 @@ public class text {
 		 * 
 		 * }
 		 */
-		text.textss();
+		//System.out.println(~0010101);
 	}
 }

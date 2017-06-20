@@ -13,6 +13,8 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URIBuilder;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
@@ -60,6 +62,47 @@ public class HttpClientApiServerTools  implements BeanFactoryAware{
 		
 		String urlPrefix =readAppXml.readAppXMLByNode("webServiceAddress", null);
 		 url =urlPrefix+url;
+		// 创建http GET请求
+		HttpGet httpGet = new HttpGet(url);
+		httpGet.setConfig(requestConfig);
+		httpGet.setHeader("HaiTao", "1");
+		CloseableHttpResponse response = null;
+		try {
+			// 执行请求
+			response = getHttpClient().execute(httpGet);
+			// 判断返回状态是否为200
+			if (response.getStatusLine().getStatusCode() == 200) {
+				respBean.setRespCode("200");
+				respBean.setData(EntityUtils.toString(response.getEntity(), "UTF-8"));
+				respBean.setRespDesc("发送GET请求成功返回");
+			} else if (response.getStatusLine().getStatusCode() == 404) {
+				respBean.setRespCode("404");
+				respBean.setData(null);
+				respBean.setRespDesc("发送GET请求404错误");
+			} else {
+				respBean.setRespCode("500");
+				respBean.setData(null);
+				respBean.setRespDesc("发送GET请求500错误");
+			}
+
+		} finally {
+			if (response != null) {
+				response.close();
+			}
+		}
+		return respBean;
+	}
+	/**
+	 * 发送get请求
+	 * 
+	 * @param url：请求路径
+	 * @return
+	 * @throws DocumentException 
+	 */
+	@SuppressWarnings("unchecked")
+	public RespInfo sendGetNoReadXML(String url) throws HttpClientErrorException, IOException, DocumentException {
+		RespInfo respBean = new RespInfo();
+		
 		// 创建http GET请求
 		HttpGet httpGet = new HttpGet(url);
 		httpGet.setConfig(requestConfig);
@@ -142,6 +185,85 @@ public class HttpClientApiServerTools  implements BeanFactoryAware{
 			UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(parameters);
 			// 将请求实体设置到httpPost对象中
 			httpPost.setEntity(formEntity);
+		}
+		httpPost.setHeader("HaiTao", "1");
+		CloseableHttpResponse response = null;
+		try {
+			// 执行请求
+			response = getHttpClient().execute(httpPost);
+			resp.setData(EntityUtils.toString(response.getEntity(), "UTF-8"));
+			resp.setRespCode(String.valueOf(response.getStatusLine().getStatusCode()));
+		} finally {
+			if (response != null) {
+				response.close();
+			}
+		}
+
+		return resp;
+	}
+	
+	/**
+	 * 发送post请求 带有参数
+	 * @param url
+	 * @param inParam
+	 * @return
+	 * @throws ParseException
+	 * @throws IOException
+	 * @throws DocumentException 
+	 */
+	public RespInfo sendPostByParamNoReadAppXml(String url, Map<String, String> inParam) throws ParseException, IOException, DocumentException {
+		RespInfo resp = new RespInfo();
+
+		// 创建http POST请求
+		HttpPost httpPost = new HttpPost(url);
+		httpPost.setConfig(requestConfig);
+		if (null != inParam) {
+			List<NameValuePair> parameters = new ArrayList<NameValuePair>(0);
+			for (Map.Entry<String, String> params : inParam.entrySet()) {
+				parameters.add(new BasicNameValuePair(params.getKey(), params.getValue()));
+
+			}
+			// 构造一个form表单式的实体
+			UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(parameters);
+			// 将请求实体设置到httpPost对象中
+			httpPost.setEntity(formEntity);
+		}
+		httpPost.setHeader("HaiTao", "1");
+		CloseableHttpResponse response = null;
+		try {
+			// 执行请求
+			response = getHttpClient().execute(httpPost);
+			resp.setData(EntityUtils.toString(response.getEntity(), "UTF-8"));
+			resp.setRespCode(String.valueOf(response.getStatusLine().getStatusCode()));
+		} finally {
+			if (response != null) {
+				response.close();
+			}
+		}
+
+		return resp;
+	}
+	
+	/**
+	 * 发送post请求 带有参数
+	 * @param url
+	 * @param inParam
+	 * @return
+	 * @throws ParseException
+	 * @throws IOException
+	 * @throws DocumentException 
+	 */
+	public RespInfo sendPostJSON(String url, String Json) throws ParseException, IOException, DocumentException {
+		RespInfo resp = new RespInfo();
+
+		// 创建http POST请求
+		HttpPost httpPost = new HttpPost(url);
+		httpPost.setConfig(requestConfig);
+		if (null != Json) {
+			// 构造一个form表单式的实体
+			StringEntity JSONstr = new StringEntity(Json, ContentType.APPLICATION_JSON);
+			// 将请求实体设置到httpPost对象中
+			httpPost.setEntity(JSONstr);
 		}
 		httpPost.setHeader("HaiTao", "1");
 		CloseableHttpResponse response = null;

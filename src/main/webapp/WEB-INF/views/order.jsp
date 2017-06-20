@@ -36,15 +36,15 @@
 			<input type="hidden" name="orderItems[0].title" value="${item.title}"/>
 			<input type="hidden" name="orderItems[0].picPath" value="${item.image}"/>
 		<input type="hidden" name="payment" value="<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/>"/>
-		<input type="hidden" name="orderShipping.receiverName" value="花和尚"/>
-		<input type="hidden" name="orderShipping.receiverMobile" value="15800000000"/>
-		<input type="hidden" name="orderShipping.receiverState" value="上海"/>
-		<input type="hidden" name="orderShipping.receiverCity" value="上海"/>
-		<input type="hidden" name="orderShipping.receiverDistrict" value="闵行区"/>
+		<input type="hidden" name="orderShipping.receiverName" value="郝旭东"/>
+		<input type="hidden" name="orderShipping.receiverMobile" value="15754712018"/>
+		<input type="hidden" name="orderShipping.receiverState" value="呼和浩特"/>
+		<input type="hidden" name="orderShipping.receiverCity" value="呼和浩特"/>
+		<input type="hidden" name="orderShipping.receiverDistrict" value="新城区"/>
 		<input type="hidden" name="orderShipping.receiverAddress" value="三鲁公路3279号 明浦广场 3号楼 205室 "/>
 	</form>
 	<div class="w w1 header clearfix">
-		<div id="logo"><a href="http://www.taotao.com/"><img src="/images/taotao-logo.gif"  alt="淘淘商城" /></a></div>
+		<div id="logo"><a href="http://www.taotao.com/"><img src="/images/taotao-logo.gif"  alt="嗨淘商城" /></a></div>
 		<div class="progress clearfix">
 			<ul class="progress-2">
 				<li class="s1"><b></b>1.我的购物车</li>
