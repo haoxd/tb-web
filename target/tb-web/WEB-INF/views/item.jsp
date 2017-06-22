@@ -41,7 +41,19 @@
 <!-- header end -->
 <div class="w">
 	<div class="breadcrumb">
-		<strong><a href="http://channel.jd.com/electronic.html">家用电器</a></strong><span>&nbsp;&gt;&nbsp;<a href="http://channel.jd.com/737-794.html" >大 家 电</a>&nbsp;&gt;&nbsp;<a href="http://list.jd.com/737-794-798.html" >平板电视</a>&nbsp;&gt;&nbsp;</span><script type="text/javascript">pageConfig.product.cat=[737,794,798];</script><span><a href="http://www.jd.com/pinpai/798-20710.html" >长虹（CHANGHONG）</a>&nbsp;&gt;&nbsp;<a href="http://item.jd.com/1221882.html" >长虹LED42538ES</a></span>
+		<strong>
+		<a href="http://channel.jd.com/electronic.html">家用电器</a>
+		</strong>
+		<span>&nbsp;&gt;&nbsp;
+		<a href="http://channel.jd.com/737-794.html" >大 家 电</a>
+		&nbsp;&gt;&nbsp;
+		<a href="http://list.jd.com/737-794-798.html" >平板电视</a>
+		&nbsp;&gt;&nbsp;
+		</span>
+		<script type="text/javascript">pageConfig.product.cat=[737,794,798];</script>
+		<span><a href="http://www.jd.com/pinpai/798-20710.html" >长虹（CHANGHONG）</a>
+		&nbsp;&gt;&nbsp;<a href="http://item.jd.com/1221882.html" >长虹LED42538ES</a>
+		</span>
 	</div>
 </div><!--breadcrumb end-->
 <div class="w">
@@ -135,7 +147,7 @@
 		        <li id="choose-result"><div class="dt"></div><div class="dd"></div></li>
 				<li id="choose-btns">
 					<div id="choose-btn-append"  class="btn">
-							<a class="btn-append " id="InitCartUrl" href="http://www.taotao.com/cart/add/${item.id}.html" clstag="shangpin|keycount|product|initcarturl">加入购物车<b></b></a>
+							<a class="btn-append " id="InitCartUrl" href="http://www.tb.com/order/isOkOrderInfo/${item.id}.html" clstag="shangpin|keycount|product|initcarturl">加入购物车<b></b></a>
 					</div>
 					<div id="choose-btn-easybuy" class="btn"></div>
 					<div id="choose-btn-divide" class="btn"></div>
@@ -209,10 +221,10 @@
 			</div>
 			<div class="mc" data-widget="tab-content" id="product-detail-1">
 				<ul class="detail-list">
-					<li title="长虹LED42538ES">商品名称：长虹LED42538ES</li>
-					<li>商品编号：1221882</li>
-					<li>品牌：<a href="http://www.jd.com/pinpai/798-20710.html" target="_blank">长虹（CHANGHONG）</a></li>
-					<li>上架时间：2014-09-24 15:45:26</li>
+					<li title="长虹LED42538ES">商品名称：${item.title}</li>
+					<li>商品编号：${item.id}</li>
+					<li>品牌：<a href="http://www.jd.com/pinpai/798-20710.html" target="_blank">${item.title}</a></li>
+					<li>上架时间：2017.6.19</li>
 					<li>商品毛重：13.5kg</li>
 					<li>商品产地：中国大陆</li>
 										<li>分辨率：全高清（1920*1080）</li><li>居室场景：卧室电视 ，客厅电视</li><li>品类：LED电视（主流）</li><li>3D：不支持</li><li>功能：普通电视</li><li>尺寸：40-43英寸</li>

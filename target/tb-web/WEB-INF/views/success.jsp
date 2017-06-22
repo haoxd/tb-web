@@ -46,7 +46,7 @@
 					<!-- 货到付款 -->
 					<div class="fore2">货到付款：<strong class="ftx-01">${order.payment}元</strong></div>
 					<div class="fore3">
-					   	淘淘快递 &nbsp; 送货时间: 预计 ${date} 送达&nbsp;
+					   	嗨淘快递 &nbsp; 送货时间: 预计 ${date} 送达&nbsp;
 					</div>
 				</li>
 			</ul>

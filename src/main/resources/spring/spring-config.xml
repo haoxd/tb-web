@@ -21,6 +21,7 @@
 				<value>classpath:env-config.properties</value><!--spring父容器加载  -->
 				<value>classpath:httpclient.properties</value><!--spring父容器加载  -->
 				<value>classpath:redis.properties</value><!--spring父容器加载  -->
+				<value>classpath:rabbitmq.properties</value><!--spring父容器加载  -->
 			</list>
 		</property>
 	</bean>
