@@ -1,6 +1,7 @@
 package com.tb.web.controller.index;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -219,5 +220,22 @@ public class text extends HttpServlet{
 		 * }
 		 */
 		//System.out.println(~0010101);
+		/*Map<String,Object> resp = new  HashMap<String,Object>();
+		for (int i = 0; i < 13; i++) {
+			resp.put("1"+i, "2"+i);
+		}
+		
+		System.out.println("2017-07-14 10:21:26".substring(11, 13));*/
+		
+		SimpleDateFormat sdf= new  SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		try {
+			Date a = sdf.parse("2017/7/28 15:00:25".replaceAll("/", "-"));
+			Date b = sdf.parse("2017/7/28 15:03:26".replaceAll("/", "-"));
+			long x=(b.getTime()-a.getTime())/1000;
+			System.out.println(x);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

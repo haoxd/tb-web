@@ -1,6 +1,8 @@
 package com.tb.web.controller.order;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -8,7 +10,6 @@ import javax.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
 import org.joda.time.DateTime;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,12 +18,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tb.common.bean.api.RespInfo;
+import com.tb.web.entity.Cart;
 import com.tb.web.entity.Order;
+import com.tb.web.service.cart.CartService;
 import com.tb.web.service.item.ItemService;
 import com.tb.web.service.order.OrderService;
-import com.tb.web.service.user.TbUserService;
 import com.tb.web.sys.contenst.ServiceCode;
 import com.tb.web.sys.contenst.httpContenst.HttpConstants.HttpStatusCode;
+import com.tb.web.thread.UserThreadLocal;
 
 @RequestMapping("/order")
 @Controller
@@ -33,6 +36,9 @@ public class OrderController {
 
 	@Resource(name = "orderService")
 	private OrderService orderService;
+	
+	@Resource(name="cartService")
+	private CartService cartServic;
 
 	/**
 	 * 订单确认页
@@ -52,7 +58,24 @@ public class OrderController {
 		return modelAndView;
 
 	}
-
+	
+	/**
+	 * 购物车下单
+	 * @return
+	 */
+	@RequestMapping(value="/cart/createorder",method=RequestMethod.GET)
+	public ModelAndView isOkOrderInfoToMyCart(@RequestParam("vals")String vals){
+		ModelAndView modelAndView = new ModelAndView("order-cart-old");
+		List<Cart> cartList = this.cartServic.queryMyCartList(vals);
+		if(null!=cartList){
+			modelAndView.addObject("carts", cartList);
+			modelAndView.addObject("user", UserThreadLocal.get());
+		}else{
+			modelAndView.addObject("carts", new ArrayList<Cart>());
+		}
+	
+		return modelAndView;
+	}
 	/**
 	 * 订单正式提交
 	 * 

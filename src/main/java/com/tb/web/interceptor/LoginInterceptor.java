@@ -10,7 +10,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tb.common.sys.util.CookieUtils;
-import com.tb.web.entity.TbUser;
+import com.tb.sso.query.api.bean.TbUser;
 import com.tb.web.service.user.TbUserService;
 import com.tb.web.sys.contenst.ServiceCode;
 import com.tb.web.thread.UserThreadLocal;
@@ -58,6 +58,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		}
 		TbUser user = userService.queryUserByToken(loginToken);
 		if(null==user ){
+			String url=request.getRequestURI();
 			response.sendRedirect(ServiceCode.token.LOGIN_PAGE);
 			return false;	
 		}

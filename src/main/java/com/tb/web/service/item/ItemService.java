@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.tb.common.bean.api.RespInfo;
 import com.tb.common.service.cache.RedisCacheService;
+import com.tb.common.service.cache.RedisClusterService;
 import com.tb.manager.pojo.ItemDesc;
 import com.tb.manager.pojo.ItemParamItem;
 import com.tb.web.entity.Item;
@@ -39,6 +40,9 @@ public class ItemService {
 
 	@Resource(name = "redis")
 	private RedisCacheService redis;
+	
+	@Resource(name="redisCluster")
+	private RedisClusterService redisCache;
 
 	private static final ObjectMapper Mapper = new ObjectMapper();
 
@@ -205,6 +209,11 @@ public class ItemService {
 		}
 		sb.append("</tbody></table>");
 		return sb.toString();
+	}
+	
+	public String test (){
+		this.redisCache.set("qwe", "321");
+		return "123";
 	}
 
 }

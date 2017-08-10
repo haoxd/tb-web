@@ -864,7 +864,8 @@ var Recommend = {init: function(t) {
         pageConfig.product.cbRecoFittings = [pageConfig.product.skuid], t && t.fittings && t.fittings.length > 0 && (e.attr("loaded", "true").html('<ul class="stab lh">' + recoFittings_TPL.tabs.process(t) + '</ul><div class="stabcon">' + recoFittings_TPL.cons.process(t) + "</div>"), this.switchTab("#th-fitting"), G.removeLastAdd(), G.getPriceNum(pageConfig.product.cbRecoFittings, readCookie("ipLoc-djd"), e, null, function(t, i) {
             e.find('input[skuid="' + t + '"]').attr("wmeprice", i.p), e.find('input[skuid="' + t + '"]').attr("wmaprice", i.m), G.calculatePrice($("#tab-reco .master input")[0], "#tab-reco", 1)
         }), G.getNewCLK({name: "tjpj",action: "0",csku: pageConfig.product.cbRecoFittings,sku: G.sku}))
-    }}, setAmount = {min: 1,max: 199,count: 1,countEl: $("#buy-num"),buyLink: $("#choose-btn-append .btn-append"),targetLink: $("#choose-btn-append .btn-append"),matchCountKey: ["pcount", "pCount", "num"],add: function() {
+    }}, setAmount = {
+		min: 1,max: 199,count: 1,countEl: $("#buy-num"),buyLink: $("#choose-btn-append .btn-append"),targetLink: $("#choose-btn-append .btn-append"),matchCountKey: ["pcount", "pCount", "num"],add: function() {
         return this.count >= this.max ? !1 : (this.count++, this.countEl.val(this.count), this.setBuyLink(), void 0)
     },reduce: function() {
         return this.count <= this.min ? !1 : (this.count--, this.countEl.val(this.count), this.setBuyLink(), void 0)

@@ -156,6 +156,18 @@ public class HttpClientApiServerTools  implements BeanFactoryAware{
 		}
 		return this.sendGet(uriBuilder.build().toString());
 	}
+	
+	@SuppressWarnings("unchecked")
+	public RespInfo sendGetNoXMLByParam(String url, Map<String, Object> inParam)
+			throws HttpClientErrorException, IOException, URISyntaxException, DocumentException {
+		RespInfo resp = new RespInfo();
+
+		URIBuilder uriBuilder = new URIBuilder(url);
+		for (Map.Entry<String, Object> params : inParam.entrySet()) {
+			uriBuilder.setParameter(params.getKey(), params.getValue().toString());
+		}
+		return this.sendGetNoReadXML(uriBuilder.build().toString());
+	}
 
 	/**
 	 * 发送post请求 带有参数

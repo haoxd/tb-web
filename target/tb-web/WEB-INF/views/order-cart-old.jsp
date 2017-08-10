@@ -37,9 +37,9 @@
 			<input type="hidden" name="orderItems[${status.index}].title" value="${cart.itemTitle}"/>
 			<input type="hidden" name="orderItems[${status.index}].picPath" value="${cart.itemImage}"/>
 		</c:forEach>
-		<input type="hidden" name="payment" value="<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/1000 }"/>"/>
-		<input type="hidden" name="orderShipping.receiverName" value="张志君"/>
-		<input type="hidden" name="orderShipping.receiverMobile" value="15800807944"/>
+		<input type="hidden" name="payment" value="<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/>"/>
+		<input type="hidden" name="orderShipping.receiverName" value="${user.userName }"/>
+		<input type="hidden" name="orderShipping.receiverMobile" value="${user.userPhone }"/>
 		<input type="hidden" name="orderShipping.receiverState" value="上海"/>
 		<input type="hidden" name="orderShipping.receiverCity" value="上海"/>
 		<input type="hidden" name="orderShipping.receiverDistrict" value="闵行区"/>
@@ -73,7 +73,7 @@
 							 <div class="sbox">
 	<div class="s-content">
 	 <p>
-	  		张志君 &nbsp; 15800807944 &nbsp;  &nbsp; 
+	  		${user.userName }&nbsp; ${user.userPhone } &nbsp;  &nbsp; 
 		<br/>
 				   上海 闵行区 外环以外  &nbsp;
 				浦江镇 江玮路450弄42号402（闵浦新苑五村）
@@ -237,7 +237,7 @@
 							 </div>
 						   </div>
 					</td>
-					  				  <td class="p-price"><strong>￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${cart.itemPrice / 1000 }"/></strong>
+					  				  <td class="p-price"><strong>￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${cart.itemPrice / 100 }"/></strong>
 					  </td>
 					  				  <td class="p-promotion"> </td>
 					  <td class="fore2">x ${cart.num }</td>
@@ -265,7 +265,7 @@
                                                 		<span id="freightSpan"  style="width:40px;"   >运费：</span> 
                                                 		<em class="price" id="freightPriceId"  > ￥0.00</em>
                                                 </div>
-                                                <div class="list"><span>应付总额：</span><em id="sumPayPriceId" class="price"> ￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/1000 }"/></em></div>			
+                                                <div class="list"><span>应付总额：</span><em id="sumPayPriceId" class="price"> ￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/></em></div>			
 											</div>
 											<div class="span clr"></div>
 											
@@ -285,7 +285,7 @@
                                         提交订单
                                         <b></b>
                                 </button>
-																	<span class="total">应付总额：<strong id="payPriceId">￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/1000 }"/></strong>元 
+																	<span class="total">应付总额：<strong id="payPriceId">￥<fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${totalPrice/100 }"/></strong>元 
 	    							</span>
 																<div class="checkout-submit-tip" id="changeAreaAndPrice" style="display: none;">由于地址更换，价格可能发生变化，请核对后再提交订单</div>
 								<div style="display:none" id="factoryShipCodShowDivBottom" class="dispatching">

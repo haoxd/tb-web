@@ -5,11 +5,11 @@ var TT = TAOTAO = {
 			return ;
 		}
 		$.ajax({
-			url : "http://sso.tb.com/service/user/queryUserByToken/" + _ticket,
+			url : "http://queryserver.tb.com/user/queryUserByToken/" + _ticket,
 			dataType : "jsonp",
 			type : "GET",
 			success : function(data){
-					var html =data.userName+"，欢迎来到嗨淘淘！<a href=\"http://sso.tb.com/service/user/logout/"+_ticket+"\" class=\"link-logout\">[退出]</a>";
+					var html =data.userName+"，欢迎来到嗨淘！<a href=\"http://sso.tb.com/service/user/logout/"+_ticket+"\" class=\"link-logout\">[退出]</a>";
 					$("#loginbar").html(html);
 				
 			}

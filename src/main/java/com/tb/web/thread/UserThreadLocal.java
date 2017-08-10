@@ -1,6 +1,6 @@
 package com.tb.web.thread;
 
-import com.tb.web.entity.TbUser;
+import com.tb.sso.query.api.bean.TbUser;
 
 /**
  * @author acer11
